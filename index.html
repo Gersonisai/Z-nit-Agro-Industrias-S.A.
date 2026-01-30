@@ -3,1044 +3,1243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zénit Agro-Industrias S.A. | Agroindustria en Bolivia</title>
-    <meta name="description" content="Zénit Agro-Industrias S.A. opera en ganadería, agricultura, producción de alimentos procesados y gestión de frigoríficos industriales en Bolivia.">
+    <title>Zénit Agro-Industrias S.A. | Producción Agropecuaria y Alimentos</title>
+    <meta name="description" content="Empresa especializada en ganadería, agricultura, producción de alimentos procesados y gestión de frigoríficos industriales en Santa Cruz y Beni, Bolivia.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #1a3a5f;
-            --secondary: #2c5a8a;
-            --accent: #e6a23c;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
-            --agro-green: #2e8b57;
+            /* Paleta corporativa Zénit con toques tierra/naturaleza */
+            --primary-dark: #0a1628;
+            --primary-navy: #1a2942;
+            --accent-gold: #c9a961;
+            --accent-gold-light: #e4d4a8;
+            --accent-green: #2d5016;
+            --accent-green-light: #4a7c2c;
+            --earth-brown: #8b6f47;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-cream: #faf8f3;
+            --border-subtle: #e2e8f0;
+            
+            /* Typography */
+            --font-display: 'Crimson Pro', serif;
+            --font-body: 'Work Sans', sans-serif;
+            
+            /* Spacing */
+            --section-padding: clamp(4rem, 8vw, 8rem);
+            --container-max: 1280px;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        html {
-            scroll-behavior: smooth;
         }
         
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            font-family: var(--font-body);
+            color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--bg-white);
         }
         
-        /* Header Styles */
+        /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--agro-green));
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
         
-        .container {
-            width: 90%;
-            max-width: 1200px;
+        header.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        nav {
+            max-width: var(--container-max);
             margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        .header-content {
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo h1 {
+            font-family: var(--font-display);
             font-size: 1.5rem;
             font-weight: 700;
-        }
-        
-        .logo span {
-            color: var(--accent);
-        }
-        
-        nav ul {
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: -0.02em;
             display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            font-size: 1.75rem;
+        }
+        
+        .logo-accent {
+            color: var(--accent-green);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
             list-style: none;
         }
         
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
+        .nav-links a {
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
             position: relative;
-            font-size: 0.9rem;
         }
         
-        nav ul li a:hover {
-            color: var(--accent);
+        .nav-links a:hover {
+            color: var(--accent-green);
         }
         
-        nav ul li a::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s;
+            background: var(--accent-green);
+            transition: width 0.3s ease;
         }
         
-        nav ul li a:hover::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
         
-        .mobile-menu {
+        .mobile-menu-btn {
             display: none;
-            font-size: 1.5rem;
+            background: none;
+            border: none;
             cursor: pointer;
-            color: white;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary-dark);
+            margin: 5px 0;
+            transition: 0.3s;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26,58,95,0.8), rgba(46,139,87,0.8)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-        
-        .hero h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-        
-        .btn:hover {
-            background-color: #d18a1a;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .btn-agro {
-            background-color: var(--agro-green);
-            margin-left: 0.5rem;
-        }
-        
-        .btn-agro:hover {
-            background-color: #267445;
-        }
-        
-        .btn-secondary {
-            background-color: var(--secondary);
-        }
-        
-        .btn-secondary:hover {
-            background-color: #1f4a75;
-        }
-        
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
-            border-radius: 20px;
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 3rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .section-title h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
+            margin-top: 80px;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-light) 100%);
             position: relative;
-            display: inline-block;
-            margin-bottom: 1rem;
+            overflow: hidden;
         }
         
-        .section-title h2::after {
+        .hero::before {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(201, 169, 97, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 20%, rgba(139, 111, 71, 0.12) 0%, transparent 50%);
+            pointer-events: none;
         }
         
-        .section-title p {
-            color: #666;
-            max-width: 700px;
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.1), transparent);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: var(--container-max);
             margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--accent-gold);
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-body);
             font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-gold-light);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            color: var(--bg-white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 680px;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 3rem;
+            max-width: 800px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+        
+        .hero-stat {
+            text-align: left;
+        }
+        
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--bg-white);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-stat-label {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
         }
         
         /* Services Section */
+        .services {
+            padding: var(--section-padding) 2rem;
+            background: var(--bg-white);
+        }
+        
+        .services-header {
+            max-width: var(--container-max);
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+        
+        .section-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
         .services-grid {
+            max-width: var(--container-max);
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
         
         .service-card {
-            background-color: white;
-            border-radius: 10px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--agro-green);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-green-light));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
         }
         
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-green-light);
         }
         
-        .service-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.2rem;
-            text-align: center;
-        }
-        
-        .service-body {
-            padding: 1.2rem;
-        }
-        
-        .service-body h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
         
         .service-icon {
-            font-size: 2.5rem;
-            color: var(--agro-green);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .service-title {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--primary-dark);
             margin-bottom: 1rem;
-            text-align: center;
+        }
+        
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .service-features li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            color: var(--accent-green);
+            font-weight: 700;
+            font-size: 1.1rem;
         }
         
         /* Operations Section */
-        .operations-container {
-            background-color: var(--light);
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 2rem;
+        .operations {
+            padding: var(--section-padding) 2rem;
+            background: var(--bg-cream);
         }
         
-        .operations-grid {
+        .operations-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        
+        .operations-content h2 {
+            margin-bottom: 2rem;
+        }
+        
+        .operations-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
         
         .operation-item {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        
-        .operation-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .operation-item h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* About Section */
-        .about-content {
             display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .company-info {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-top: 1.5rem;
-        }
-        
-        .company-info h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        
-        .company-contact {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-        
-        .founder-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-        
-        /* Facilities Section */
-        .facilities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
         }
         
-        .facility-item {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        
-        .facility-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .facility-img {
-            height: 200px;
-            background-color: #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        .facility-content {
-            padding: 1.2rem;
-        }
-        
-        .facility-content h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Group Section */
-        .group-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .group-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        
-        .group-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .group-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .group-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        /* Contact Section */
-        .contact-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.2rem;
-        }
-        
-        .contact-icon {
-            background-color: var(--primary);
-            color: white;
-            width: 35px;
-            height: 35px;
+        .operation-icon {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            background: linear-gradient(135deg, var(--accent-green-light), var(--accent-green));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
-            font-size: 0.9rem;
+            font-size: 1.75rem;
         }
         
-        .contact-message {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .operation-text h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .operation-text p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Investment Section */
+        .investment {
+            padding: var(--section-padding) 2rem;
+            background: var(--primary-dark);
+            color: var(--bg-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .investment::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(74, 124, 44, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(201, 169, 97, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .investment-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .investment-header {
             text-align: center;
-            margin-top: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .investment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+        
+        .investment-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .investment-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+        }
+        
+        .investment-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .investment-amount {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--bg-white);
+            margin-bottom: 1rem;
+        }
+        
+        .investment-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+        
+        /* Regions Section */
+        .regions {
+            padding: var(--section-padding) 2rem;
+            background: var(--bg-white);
+        }
+        
+        .regions-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .regions-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .regions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .region-card {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-left: 4px solid var(--accent-green);
+            transition: all 0.3s ease;
+        }
+        
+        .region-card:hover {
+            background: var(--bg-white);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border-left-width: 6px;
+        }
+        
+        .region-name {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .region-subtitle {
+            color: var(--accent-green);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .region-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .region-activities {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .region-activities li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .region-activities li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: var(--section-padding) 2rem;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-green-light) 100%);
+            color: var(--bg-white);
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--bg-white);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .cta p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--bg-white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--bg-white);
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 2rem 0 1rem;
+            background: var(--primary-navy);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 2rem 2rem;
         }
         
         .footer-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bg-white);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .footer-section h4 {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--bg-white);
             margin-bottom: 1.5rem;
         }
         
-        .footer-column {
-            flex: 1;
-        }
-        
-        .footer-column h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .footer-column ul {
+        .footer-links {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
         
-        .footer-column ul li {
-            margin-bottom: 0.6rem;
-        }
-        
-        .footer-column ul li a {
-            color: #ccc;
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            transition: color 0.3s;
             font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
         
-        .footer-column ul li a:hover {
-            color: white;
+        .footer-links a:hover {
+            color: var(--accent-gold);
         }
         
-        .copyright {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.8rem;
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
         }
         
-        /* Responsive Styles */
-        @media (min-width: 768px) {
-            .hero {
-                padding: 5rem 0;
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-legal a:hover {
+            color: var(--accent-gold);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .operations-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
             
-            .hero h2 {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: clamp(3rem, 6vw, 4rem);
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-title {
                 font-size: 2.5rem;
             }
             
-            .about-content {
-                flex-direction: row;
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
-            .contact-container {
-                flex-direction: row;
+            .services-grid,
+            .regions-grid {
+                grid-template-columns: 1fr;
             }
             
-            .footer-content {
-                flex-direction: row;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .logo h1 {
-                font-size: 1.3rem;
+            .investment-grid {
+                grid-template-columns: 1fr;
             }
             
-            nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                text-align: center;
                 width: 100%;
-                background: var(--primary);
-                padding: 1rem;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
             
-            nav.active {
-                display: block;
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
-            nav ul {
+            .footer-bottom {
                 flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
             
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .btn-container {
-                display: flex;
+            .footer-legal {
                 flex-direction: column;
-                align-items: center;
                 gap: 0.5rem;
-            }
-            
-            .btn-agro {
-                margin-left: 0;
             }
         }
         
         @media (max-width: 480px) {
-            .container {
-                width: 95%;
+            nav {
+                padding: 1rem 1.5rem;
             }
             
-            .services-grid, .facilities-grid, .group-grid {
-                grid-template-columns: 1fr;
+            .hero-content,
+            .services,
+            .operations,
+            .investment,
+            .regions,
+            .cta,
+            footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
             }
             
-            .operations-grid {
-                grid-template-columns: 1fr;
+            .service-card,
+            .investment-card,
+            .region-card {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>ZÉNIT <span>AGRO-INDUSTRIAS</span> S.A.</h1>
-                </div>
-                <div class="mobile-menu" aria-label="Abrir menú">☰</div>
-                <nav>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#operaciones">Operaciones</a></li>
-                        <li><a href="#instalaciones">Instalaciones</a></li>
-                        <li><a href="#grupo-zenit">Grupo Zénit</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <span class="logo-icon">🌾</span>
+                <span>Zénit <span class="logo-accent">Agro-Industrias</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#operaciones">Operaciones</a></li>
+                <li><a href="#regiones">Regiones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero" aria-labelledby="hero-title">
-        <div class="container">
-            <h2 id="hero-title">Liderando la Agroindustria en Bolivia</h2>
-            <p>Zénit Agro-Industrias S.A. desarrolla operaciones en ganadería, agricultura, producción de alimentos procesados y gestión de frigoríficos industriales.</p>
-            <div class="btn-container">
-                <a href="#servicios" class="btn" aria-label="Conocer nuestros servicios">Nuestros Servicios</a>
-                <a href="#contacto" class="btn btn-agro" aria-label="Contactar para negocios">Contactar</a>
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="https://grupo-z-nit-s-a-three.vercel.app/">GRUPO ZÉNIT</a>
+                <span>/</span>
+                <span>Agro-Industrias</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Servicios -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestros Servicios Agroindustriales</h2>
-                <p>Ofrecemos una amplia gama de servicios especializados en el sector agropecuario y agroindustrial</p>
-            </div>
-            <div class="services-grid">
-                <!-- Ganadería -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Operaciones Ganaderas</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">🐄</div>
-                        <h4>Cría y Engorde de Ganado</h4>
-                        <p>Gestión integral de ganado bovino, porcino y avícola, con estándares de calidad y bienestar animal para maximizar la productividad.</p>
-                    </div>
+            <div class="hero-subtitle">Filial de GRUPO ZÉNIT S.A.</div>
+            <h1 class="hero-title">Producción Agropecuaria de Excelencia</h1>
+            <p class="hero-description">
+                Empresa especializada en ganadería, agricultura, producción de alimentos procesados y gestión de frigoríficos industriales en las regiones más productivas de Bolivia.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">Bs. 7.6M</div>
+                    <div class="hero-stat-label">Inversión Inicial</div>
                 </div>
-                
-                <!-- Agricultura -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Operaciones Agrícolas</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">🌱</div>
-                        <h4>Cultivo y Cosecha</h4>
-                        <p>Producción agrícola de cereales, oleaginosas, hortalizas y frutas utilizando técnicas sostenibles y tecnología de vanguardia.</p>
-                    </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">200+ ha</div>
+                    <div class="hero-stat-label">Tierras Productivas</div>
                 </div>
-                
-                <!-- Procesamiento -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Procesamiento de Alimentos</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">🏭</div>
-                        <h4>Transformación y Valor Agregado</h4>
-                        <p>Procesamiento, transformación y comercialización de alimentos procesados incluyendo cárnicos, lácteos, embutidos y derivados.</p>
-                    </div>
-                </div>
-                
-                <!-- Frigoríficos -->
-                <div class="service-card">
-                    <div class="service-header">
-                        <h3>Gestión de Frigoríficos</h3>
-                    </div>
-                    <div class="service-body">
-                        <div class="service-icon">❄️</div>
-                        <h4>Cadena de Frío Industrial</h4>
-                        <p>Operación y gestión de frigoríficos industriales, plantas de procesamiento y centros de distribución para productos agroindustriales.</p>
-                    </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">2</div>
+                    <div class="hero-stat-label">Regiones de Operación</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Operaciones -->
-    <section id="operaciones" class="operations">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestras Áreas de Operación</h2>
-                <p>Contamos con presencia en las regiones más productivas de Bolivia</p>
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="services-header">
+            <div class="section-label">Nuestros Servicios</div>
+            <h2 class="section-title">Soluciones Agropecuarias Integrales</h2>
+            <p class="section-description">
+                Operamos en toda la cadena de valor del sector agropecuario, desde la producción primaria hasta el procesamiento industrial de alimentos.
+            </p>
+        </div>
+        <div class="services-grid">
+            <!-- Ganadería -->
+            <div class="service-card">
+                <span class="service-icon">🐄</span>
+                <h3 class="service-title">Ganadería</h3>
+                <p class="service-description">
+                    Operaciones integrales de cría, engorde y comercialización de ganado bovino, porcino y avícola con estándares de calidad internacional.
+                </p>
+                <ul class="service-features">
+                    <li>Cría de ganado bovino de alta genética</li>
+                    <li>Engorde y comercialización</li>
+                    <li>Producción porcina y avícola</li>
+                    <li>Cumplimiento normativo SENASAG</li>
+                </ul>
             </div>
-            <div class="operations-container">
-                <h3 style="color: var(--primary); text-align: center; margin-bottom: 1rem;">Zonas de Alta Rentabilidad</h3>
-                <div class="operations-grid">
+
+            <!-- Agricultura -->
+            <div class="service-card">
+                <span class="service-icon">🌾</span>
+                <h3 class="service-title">Agricultura</h3>
+                <p class="service-description">
+                    Cultivo, cosecha y comercialización de cereales, oleaginosas, hortalizas y frutas utilizando tecnología agrícola moderna.
+                </p>
+                <ul class="service-features">
+                    <li>Cultivo de soya, maíz y trigo</li>
+                    <li>Producción de hortalizas y frutas</li>
+                    <li>Agricultura sostenible</li>
+                    <li>Tecnología de riego eficiente</li>
+                </ul>
+            </div>
+
+            <!-- Alimentos Procesados -->
+            <div class="service-card">
+                <span class="service-icon">🍖</span>
+                <h3 class="service-title">Alimentos Procesados</h3>
+                <p class="service-description">
+                    Producción, procesamiento y transformación de productos cárnicos, lácteos, embutidos y otros alimentos derivados.
+                </p>
+                <ul class="service-features">
+                    <li>Procesamiento de productos cárnicos</li>
+                    <li>Producción de lácteos y derivados</li>
+                    <li>Elaboración de embutidos</li>
+                    <li>Certificaciones sanitarias</li>
+                </ul>
+            </div>
+
+            <!-- Frigoríficos -->
+            <div class="service-card">
+                <span class="service-icon">❄️</span>
+                <h3 class="service-title">Frigoríficos Industriales</h3>
+                <p class="service-description">
+                    Gestión y operación de plantas de procesamiento, almacenes refrigerados y centros de distribución especializados.
+                </p>
+                <ul class="service-features">
+                    <li>Almacenamiento refrigerado</li>
+                    <li>Procesamiento industrial</li>
+                    <li>Cadena de frío completa</li>
+                    <li>Distribución logística</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Operations Section -->
+    <section class="operations" id="operaciones">
+        <div class="operations-container">
+            <div class="operations-content">
+                <div class="section-label">Cómo Trabajamos</div>
+                <h2 class="section-title">Operaciones Agroindustriales</h2>
+                <p class="section-description" style="margin-bottom: 3rem;">
+                    Nuestro modelo integra producción primaria, procesamiento industrial y distribución comercial, garantizando calidad en cada etapa.
+                </p>
+                <div class="operations-list">
                     <div class="operation-item">
-                        <h4>Santa Cruz</h4>
-                        <p>Centro de producción de soya, maíz, trigo y operaciones ganaderas intensivas.</p>
+                        <div class="operation-icon">🚜</div>
+                        <div class="operation-text">
+                            <h3>Producción Primaria</h3>
+                            <p>Gestión de tierras agrícolas y ganaderas con maquinaria moderna y técnicas de producción sostenible que maximizan el rendimiento.</p>
+                        </div>
                     </div>
                     <div class="operation-item">
-                        <h4>Beni</h4>
-                        <p>Región especializada en ganadería extensiva y agricultura de gran escala.</p>
+                        <div class="operation-icon">🏭</div>
+                        <div class="operation-text">
+                            <h3>Procesamiento Industrial</h3>
+                            <p>Transformación de materias primas en productos alimenticios de valor agregado en instalaciones con certificación sanitaria SENASAG.</p>
+                        </div>
                     </div>
                     <div class="operation-item">
-                        <h4>Centros de Procesamiento</h4>
-                        <p>Plantas estratégicamente ubicadas para optimizar la cadena de suministro.</p>
+                        <div class="operation-icon">📦</div>
+                        <div class="operation-text">
+                            <h3>Distribución Comercial</h3>
+                            <p>Red logística eficiente para comercialización en mercados locales y exportación, manteniendo cadena de frío y estándares de calidad.</p>
+                        </div>
                     </div>
-                    <div class="operation-item">
-                        <h4>Distribución Nacional</h4>
-                        <p>Red logística para comercialización en los principales mercados de Bolivia.</p>
-                    </div>
+                </div>
+            </div>
+            <div class="operations-visual">
+                <div class="section-label">Infraestructura</div>
+                <h3 class="section-title" style="font-size: 2rem; margin-bottom: 1.5rem;">Activos Productivos</h3>
+                <p class="section-description" style="margin-bottom: 2rem;">
+                    Contamos con infraestructura de primer nivel para garantizar operaciones eficientes y productos de calidad superior.
+                </p>
+                <div style="background: var(--bg-white); padding: 2rem; border-left: 4px solid var(--accent-green);">
+                    <h4 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 1rem;">Maquinaria Agrícola</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Inversión de Bs. 2.78M en tractores, cosechadoras y equipos especializados de última generación.</p>
+                    
+                    <h4 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 1rem;">Tierras Productivas</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">Base de 200 hectáreas en zonas estratégicas de Santa Cruz y Beni con potencial de expansión.</p>
+                    
+                    <h4 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 1rem;">Frigoríficos</h4>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">Infraestructura refrigerada de Bs. 1.04M con capacidad de almacenamiento y procesamiento industrial.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Instalaciones -->
-    <section id="instalaciones" class="facilities">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestras Instalaciones</h2>
-                <p>Contamos con infraestructura moderna y tecnología de punta para garantizar la calidad</p>
+    <!-- Investment Section -->
+    <section class="investment">
+        <div class="investment-container">
+            <div class="investment-header">
+                <div class="section-label" style="color: var(--accent-gold-light);">Estructura Financiera</div>
+                <h2 class="section-title" style="color: var(--bg-white);">Inversión y Costos Operativos</h2>
+                <p class="section-description" style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0;">
+                    Estructura de capital diseñada para operaciones agroindustriales sostenibles y de alta rentabilidad.
+                </p>
             </div>
-            <div class="facilities-grid">
-                <div class="facility-item">
-                    <div class="facility-img" style="background-color: #e8f5e8;">
-                        FRIGORÍFICO INDUSTRIAL
-                    </div>
-                    <div class="facility-content">
-                        <h4>Planta de Procesamiento Cárnico</h4>
-                        <p>Instalaciones con tecnología de refrigeración avanzada para el procesamiento y conservación de productos cárnicos.</p>
-                    </div>
+            <div class="investment-grid">
+                <div class="investment-card">
+                    <h3>Inversión Total</h3>
+                    <div class="investment-amount">Bs. 7.6M</div>
+                    <p class="investment-description">
+                        Capital inicial equivalente a $us 1.1M para infraestructura, maquinaria, tierras y capital de trabajo.
+                    </p>
                 </div>
-                <div class="facility-item">
-                    <div class="facility-img" style="background-color: #f0f8ff;">
-                        PLANTA AGRÍCOLA
-                    </div>
-                    <div class="facility-content">
-                        <h4>Centro de Acopio y Procesamiento</h4>
-                        <p>Instalaciones para el almacenamiento, procesamiento y distribución de productos agrícolas.</p>
-                    </div>
+                <div class="investment-card">
+                    <h3>Costos Operativos</h3>
+                    <div class="investment-amount">Bs. 139K</div>
+                    <p class="investment-description">
+                        Costos mensuales de operación incluyendo personal técnico, mantenimiento, combustible e insumos agrícolas.
+                    </p>
                 </div>
-                <div class="facility-item">
-                    <div class="facility-img" style="background-color: #fff8e1;">
-                        INSTALACIONES GANADERAS
-                    </div>
-                    <div class="facility-content">
-                        <h4>Complejos Pecuarios</h4>
-                        <p>Modernas instalaciones para la cría, engorde y cuidado del ganado con estándares internacionales.</p>
-                    </div>
+                <div class="investment-card">
+                    <h3>Capital de Trabajo</h3>
+                    <div class="investment-amount">Bs. 348K</div>
+                    <p class="investment-description">
+                        Fondo para adquisición de insumos, semillas, fertilizantes y otros recursos operativos recurrentes.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Grupo Zénit -->
-    <section id="grupo-zenit" class="group">
-        <div class="container">
-            <div class="section-title">
-                <h2>Grupo Zénit</h2>
-                <p>Conozca las demás empresas que forman parte de nuestro holding empresarial</p>
+    <!-- Regions Section -->
+    <section class="regions" id="regiones">
+        <div class="regions-container">
+            <div class="regions-header">
+                <div class="section-label">Zonas de Operación</div>
+                <h2 class="section-title">Regiones Estratégicas</h2>
+                <p class="section-description">
+                    Operamos en las áreas de mayor potencial agroproductivo de Bolivia, maximizando rendimientos y eficiencia.
+                </p>
             </div>
-            
-            <div class="group-grid">
-                <div class="group-card">
-                    <div class="group-icon">🏦</div>
-                    <h3>Zénit Financiera</h3>
-                    <p>Servicios financieros y gestión de inversiones</p>
-                    <a href="https://gersonisai.github.io/Z-nit-Financiera-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Financiera">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
+            <div class="regions-grid">
+                <!-- Santa Cruz -->
+                <div class="region-card">
+                    <h3 class="region-name">Santa Cruz</h3>
+                    <div class="region-subtitle">Polo Agroindustrial Nacional</div>
+                    <p class="region-description">
+                        Principal zona de operaciones para agricultura intensiva, producción de oleaginosas y cereales. Centro de procesamiento industrial y exportación.
+                    </p>
+                    <ul class="region-activities">
+                        <li>Cultivo de soya, maíz y trigo</li>
+                        <li>Ganadería bovina intensiva</li>
+                        <li>Plantas de procesamiento industrial</li>
+                        <li>Hub logístico de exportación</li>
+                    </ul>
                 </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">💻</div>
-                    <h3>Zénit Software</h3>
-                    <p>Desarrollo de software y soluciones tecnológicas</p>
-                    <a href="https://gersonisai.github.io/Z-nit-Software-Solutions-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Software">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">🚚</div>
-                    <h3>Zénit Cargo & Transport</h3>
-                    <p>Logística y transporte de carga y pasajeros</p>
-                    <a href="https://gersonisai.github.io/Z-nit-Cargo-Transport-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Cargo & Transport">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">🏨</div>
-                    <h3>Zénit Hospitality</h3>
-                    <p>Hotelería, restaurantes y entretenimiento</p>
-                    <a href="https://gersonisai.github.io/Z-nit-Hospitality-Group-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Hospitality">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">⚖️</div>
-                    <h3>Zénit Yasi K'ari</h3>
-                    <p>Servicios legales y consultoría jurídica</p>
-                    <a href="https://gersonisai.github.io/yasikari-web/" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Yasi K'ari">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">💊</div>
-                    <h3>Zénit Pharma</h3>
-                    <p>Comercialización de productos farmacéuticos</p>
-                    <a href="https://gersonisai.github.io/Z-nit-Pharma-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web de Zénit Pharma">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">🏢</div>
-                    <h3>Grupo Zénit S.A.</h3>
-                    <p>Holding empresarial - Sitio principal</p>
-                    <a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" class="btn btn-small" target="_blank" aria-label="Visitar sitio web del Grupo Zénit">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
-                </div>
-                
-                <div class="group-card">
-                    <div class="group-icon">👤</div>
-                    <h3>Sitio Personal</h3>
-                    <p>Gerson Isai Machua Oniava - Presidente del Directorio</p>
-                    <a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" class="btn btn-small btn-secondary" target="_blank" aria-label="Visitar sitio personal de Gerson">
-                        <i class="fas fa-external-link-alt"></i> Visitar Sitio
-                    </a>
+
+                <!-- Beni -->
+                <div class="region-card">
+                    <h3 class="region-name">Beni</h3>
+                    <div class="region-subtitle">Ganadería Extensiva</div>
+                    <p class="region-description">
+                        Zona estratégica para ganadería extensiva, agricultura de subsistencia y producción de alimentos frescos en ecosistemas de sabana tropical.
+                    </p>
+                    <ul class="region-activities">
+                        <li>Ganadería bovina extensiva</li>
+                        <li>Agricultura tropical sostenible</li>
+                        <li>Producción de forrajes</li>
+                        <li>Frigoríficos regionales</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sobre Nosotros -->
-    <section id="nosotros" class="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>Sobre Nosotros</h2>
-                <p>Conozca más sobre nuestra empresa y nuestro compromiso con el desarrollo agroindustrial de Bolivia</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Nuestra Misión</h3>
-                    <p>Zénit Agro-Industrias S.A. es una empresa especializada en el desarrollo, operación y comercialización de actividades en el sector agropecuario, agroindustrial y alimentario, constituida como parte del Grupo Zénit S.A.</p>
-                    <p>Nuestra misión es impulsar el desarrollo del sector agroindustrial boliviano mediante la implementación de tecnologías modernas, prácticas sostenibles y estándares de calidad internacionales.</p>
-                    
-                    <div class="company-info">
-                        <h3>Información Corporativa</h3>
-                        <p><strong>Zénit Agro-Industrias S.A.</strong> es una sociedad anónima constituida bajo las leyes de Bolivia, con domicilio principal en Trinidad, Beni.</p>
-                        <p>Forma parte del holding empresarial <strong><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">GRUPO ZÉNIT S.A.</a></strong>, que ejerce la dirección estratégica y supervisión sobre nuestras operaciones.</p>
-                        <div class="company-contact">
-                            <span>📍</span>
-                            <p><strong>Zonas de Rentabilidad:</strong> Santa Cruz, Beni</p>
-                        </div>
-                        <div class="company-contact">
-                            <span>💼</span>
-                            <p><strong>Inversión Inicial:</strong> Bs. 7,656,000 | <strong>Costo Operativo Mensual:</strong> Bs. 139,200</p>
-                        </div>
-                        <div class="founder-links">
-                            <a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" class="btn btn-small btn-secondary" target="_blank" aria-label="Visitar sitio personal de Gerson">
-                                <i class="fas fa-user"></i> Sitio Personal del Presidente
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contacto</h2>
-                <p>Póngase en contacto con nosotros para más información sobre nuestros servicios y productos</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3 style="color:var(--primary); margin-bottom:1.5rem;">Información de Contacto</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h4>Oficinas Principales</h4>
-                            <p>Trinidad, Beni, Bolivia</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h4>Email Corporativo</h4>
-                            <p><a href="mailto:gersonisaimachuaoniava@gmail.com">gersonisaimachuaoniava@gmail.com</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">👤</div>
-                        <div>
-                            <h4>Contacto Principal</h4>
-                            <p>Gerson Isai Machua Oniava<br>Presidente del Directorio - Grupo Zénit</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">🌱</div>
-                        <div>
-                            <h4>Especialización</h4>
-                            <p>Ganadería, agricultura, procesamiento de alimentos, gestión de frigoríficos</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-info">
-                    <h3 style="color:var(--primary); margin-bottom:1.5rem;">Áreas de Negocio</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">🐄</div>
-                        <div>
-                            <h4>Ganadería Integral</h4>
-                            <p>Cría, engorde y comercialización de ganado bovino, porcino y avícola</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">🌾</div>
-                        <div>
-                            <h4>Producción Agrícola</h4>
-                            <p>Cultivo, cosecha y comercialización de cereales, oleaginosas y otros productos</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">🏭</div>
-                        <div>
-                            <h4>Procesamiento Industrial</h4>
-                            <p>Transformación de alimentos y gestión de plantas de procesamiento</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">🚚</div>
-                        <div>
-                            <h4>Distribución y Logística</h4>
-                            <p>Gestión de cadena de frío y distribución de productos agroindustriales</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="contact-message">
-                <h3 style="color:var(--primary); margin-bottom:1rem;">¿Interesado en Nuestros Productos?</h3>
-                <p>Para obtener información detallada sobre nuestros servicios, solicitar cotizaciones o establecer alianzas comerciales, por favor contáctenos directamente a través de nuestro correo electrónico.</p>
-                <a href="mailto:gersonisaimachuaoniava@gmail.com" class="btn btn-agro" style="margin-top:1.5rem;" aria-label="Contactar para negocios agroindustriales">Contactar para Negocios</a>
+    <!-- CTA Section -->
+    <section class="cta" id="contacto">
+        <div class="cta-container">
+            <h2>¿Interesado en Nuestros Productos y Servicios?</h2>
+            <p>
+                Conecte con nuestro equipo para conocer nuestra oferta de productos agropecuarios, servicios de procesamiento industrial o oportunidades de colaboración comercial.
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:gersonisaimachuaoniava@gmail.com" class="btn btn-primary">Contactar</a>
+                <a href="https://grupo-z-nit-s-a-three.vercel.app/" class="btn btn-secondary">Grupo Zénit</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>ZÉNIT AGRO-INDUSTRIAS S.A.</h3>
-                    <p>Empresa especializada en operaciones ganaderas, agrícolas, producción de alimentos procesados y gestión de frigoríficos industriales, parte del Grupo Zénit S.A.</p>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand">Zénit Agro-Industrias</div>
+                    <p class="footer-description">
+                        Filial de GRUPO ZÉNIT S.A. especializada en ganadería, agricultura, producción de alimentos procesados y gestión de frigoríficos industriales en Santa Cruz y Beni, Bolivia.
+                    </p>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
+
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul class="footer-links">
+                        <li><a href="#servicios">Ganadería</a></li>
+                        <li><a href="#servicios">Agricultura</a></li>
+                        <li><a href="#servicios">Alimentos Procesados</a></li>
+                        <li><a href="#servicios">Frigoríficos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul class="footer-links">
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#operaciones">Operaciones</a></li>
-                        <li><a href="#instalaciones">Instalaciones</a></li>
-                        <li><a href="#grupo-zenit">Grupo Zénit</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#regiones">Regiones</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li>📍 Trinidad, Beni, Bolivia</li>
-                        <li>📧 <a href="mailto:gersonisaimachuaoniava@gmail.com" style="color:#ccc; text-decoration:none;">gersonisaimachuaoniava@gmail.com</a></li>
-                        <li>👤 Gerson Isai Machua Oniava</li>
-                        <li>🌱 Especialistas en agroindustria</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Grupo Zénit</h3>
-                    <ul>
-                        <li><a href="https://gersonisai.github.io/GRUPO-Z-NIT-S.A./" target="_blank">Grupo Zénit S.A.</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Financiera-S.A./" target="_blank">Zénit Financiera</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Software-Solutions-S.A./" target="_blank">Zénit Software</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Cargo-Transport-S.A./" target="_blank">Zénit Cargo & Transport</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Hospitality-Group-S.A./" target="_blank">Zénit Hospitality</a></li>
-                        <li><a href="https://gersonisai.github.io/yasikari-web/" target="_blank">Zénit Yasi K'ari</a></li>
-                        <li><a href="https://gersonisai.github.io/Z-nit-Pharma-S.A./" target="_blank">Zénit Pharma</a></li>
-                        <li><a href="https://sites.google.com/view/gerson-isai-machua-oniava/inicio" target="_blank">Sitio Personal Gerson</a></li>
+
+                <div class="footer-section">
+                    <h4>Grupo Zénit</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://grupo-z-nit-s-a-three.vercel.app/" target="_blank">Holding Principal</a></li>
+                        <li><a href="https://z-nit-financiera-s-a.vercel.app/" target="_blank">Financiera</a></li>
+                        <li><a href="https://z-nit-software-solutions-s-a.vercel.app/" target="_blank">Software Solutions</a></li>
+                        <li><a href="https://z-nit-cargo-transport-s-a.vercel.app/" target="_blank">Cargo & Transport</a></li>
+                        <li><a href="https://z-nit-hospitality-group-s-a.vercel.app/" target="_blank">Hospitality Group</a></li>
+                        <li><a href="https://z-nit-yasi-k-ari.vercel.app/" target="_blank">Yasi K'ari Legal</a></li>
+                        <li><a href="https://z-nit-pharma-s-a-xcfa.vercel.app/" target="_blank">Pharma</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 ZÉNIT AGRO-INDUSTRIAS S.A. - Todos los derechos reservados | Parte de GRUPO ZÉNIT S.A.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Zénit Agro-Industrias S.A. | Filial de GRUPO ZÉNIT S.A.</p>
+                <div class="footer-legal">
+                    <span>Trinidad, Beni, Bolivia</span>
+                    <a href="mailto:gersonisaimachuaoniava@gmail.com">Contacto</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a, .btn').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (!href || href.startsWith('mailto:') || href.startsWith('http')) return;
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetElement = document.querySelector(href);
-                if (!targetElement) return;
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                document.querySelector('nav').classList.remove('active');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
-        // Add Font Awesome for external link icons
-        const fontAwesomeScript = document.createElement('script');
-        fontAwesomeScript.src = 'https://kit.fontawesome.com/a076d05399.js';
-        fontAwesomeScript.crossOrigin = 'anonymous';
-        document.head.appendChild(fontAwesomeScript);
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '100%';
+                    navLinks.style.left = '0';
+                    navLinks.style.right = '0';
+                    navLinks.style.background = 'var(--bg-white)';
+                    navLinks.style.padding = '2rem';
+                    navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                    navLinks.style.zIndex = '999';
+                }
+            });
+        }
     </script>
 </body>
 </html>
